@@ -17,10 +17,10 @@
           <a class="navbar-brand">iToo</a>
         </div>
         <div>
-            <form id="searchbox" action="">
-              <input id="search" type="text" placeholder="Enter your search term here">
+            <div id="searchbox" action="">
+              <input id="search" type="text" placeholder="Enter your search term here" onkeyup="strikeEnterKey(event)">
               <button id="submit" type="button" value="Search" onclick="sendSearch()">Search</button>
-            </form>
+            </div>
         </div>
          <div class="container-fluid">
            <ul id="searchResults">

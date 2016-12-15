@@ -8,6 +8,7 @@ $(document).ready(function(){
 });
 
 function sendSearch(){
+  $("#searchResults").empty();
   var searchRequest = $("#search")[0];
   var specificSearch = searchRequest.value;
   console.log(searchRequest.value);
@@ -18,17 +19,29 @@ function sendSearch(){
     url : itunesAPI,
     async : true,
     success : function(data){
+
       showResults(data.results);
     }
   });
 }
 
 function showResults(data){
-  var results = [];
-  var resultsDisplay = $("searchResults");
-  $.each(data, function(key, val){
-    resultsDisplay.append();
-    console.log(data);
-
+console.log(data);
+  var results = data;
+  var resultsDisplay = $("#searchResults")[0];
+  $.each(results, function(key, data){
+    var artistName = results[key].artistName;
+    var trackName = results[key].trackName;
+    var albumArt = results[key].artworkUrl100;
+    var previewUrl = results[key].previewUrl;
+    console.log(trackName);
+    $('<li id=shownResults>  <p>' + artistName + '</p><p>' + trackName + '</p><img src ="' + albumArt +  '"/><audio controls src="' + previewUrl + '"/></li>').appendTo(resultsDisplay);
   });
+}
+
+function strikeEnterKey(event){
+  var keyStroke = event.keyCode || event.which;
+  if(keyStroke === 13){
+    sendSearch();
+  }
 }
