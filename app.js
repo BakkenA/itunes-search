@@ -32,10 +32,10 @@ console.log(data);
   $.each(results, function(key, data){
     var artistName = results[key].artistName;
     var trackName = results[key].trackName;
-    var albumArt = results[key].artworkUrl100;
+    var albumArt = results[key].artworkUrl100.replace('100x100', '2180x2180');
     var previewUrl = results[key].previewUrl;
     console.log(trackName);
-    $('<li id=shownResults>  <p>' + artistName + '</p><p>' + trackName + '</p><img src ="' + albumArt +  '"/><audio controls src="' + previewUrl + '"/></li>').appendTo(resultsDisplay);
+    $('<li id=shownResults>  <p>' + artistName + '</p><p>' + trackName +  '</p><img class="albumCover" src ="' + albumArt +  '"/><audio controls src="' + previewUrl + '"/></li>').appendTo(resultsDisplay);
   });
 }
 

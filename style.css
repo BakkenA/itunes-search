@@ -14,6 +14,21 @@
   background-image: linear-gradient(#334a56, #517789);
   background-repeat: no-repeat;
 }
+p{
+  position: relative;
+  color: black;
+  font-family: serif;
+  font-weight: bold;
+}
+
+.albumCover{
+  max-width: 350px;
+}
+
+#searchResults{
+  list-style-type: none;
+
+}
 #searchbox{
   background-color: #2f0cf7;
   background-image: linear-gradient(#44778e, #151f23);
