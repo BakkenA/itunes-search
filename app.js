@@ -35,7 +35,7 @@ console.log(data);
     var albumArt = results[key].artworkUrl100.replace('100x100', '2180x2180');
     var previewUrl = results[key].previewUrl;
     console.log(trackName);
-    $('<li id=shownResults>  <p>' + artistName + '</p><p>' + trackName +  '</p><img class="albumCover" src ="' + albumArt +  '"/><audio controls src="' + previewUrl + '"/></li>').appendTo(resultsDisplay);
+    $('<li id=shownResults>  <p>' + artistName + '</p><p>' + trackName +  '</p><audio controls src="' + previewUrl + '"/><img class="albumCover" src ="' + albumArt +  '"/></li>').appendTo(resultsDisplay);
   });
 }
 
