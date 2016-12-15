@@ -11,9 +11,11 @@ function sendSearch(){
   $("#searchResults").empty();
   var searchRequest = $("#search")[0];
   var specificSearch = searchRequest.value;
-  console.log(searchRequest.value);
+  if (specificSearch == ""){
+    return;
+  }
+  specificSearch.value = "";
   var itunesAPI = "https://itunes.apple.com/search?term="+specificSearch;
-  console.log(itunesAPI);
   $.ajax({
     dataType : "jsonp",
     url : itunesAPI,
@@ -26,7 +28,6 @@ function sendSearch(){
 }
 
 function showResults(data){
-console.log(data);
   var results = data;
   var resultsDisplay = $("#searchResults")[0];
   $.each(results, function(key, data){
@@ -34,7 +35,6 @@ console.log(data);
     var trackName = results[key].trackName;
     var albumArt = results[key].artworkUrl100.replace('100x100', '2180x2180');
     var previewUrl = results[key].previewUrl;
-    console.log(trackName);
     $('<li id=shownResults>  <p>' + artistName + '</p><p>' + trackName +  '</p><audio controls src="' + previewUrl + '"/><img class="albumCover" src ="' + albumArt +  '"/></li>').appendTo(resultsDisplay);
   });
 }
